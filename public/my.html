@@ -1,0 +1,655 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./my.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', arial, sans-serif;
+    }
+
+    body {
+        /* background-color:  transparent; */
+        background-color: #eaf0ff;
+    }
+
+    nav {
+        width: 100%;
+        height: 12vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    /* nav .menu {       */
+    /* width: 50%; */
+    /* display:flex; */
+    /* justify-content:space-around; */
+    /* margin-left: 355px; */
+    /* } */
+    nav .menu a {
+        text-decoration: none;
+        margin-top: 30px;
+        height: 32px;
+        font-size: 20px;
+        color: #978e8e;
+        /* display:inline-block; */
+        text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
+    }
+
+    nav .menu a:hover {
+        cursor: pointer;
+    }
+
+    /* --------------------------------------------------------------------------------------------------------------------------------- */
+    #upper-main-section {
+        height: 218px;
+        padding: 180px 0px;
+        background: url(./public/img/banner-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        text-align: center;
+    }
+
+    section h3 {
+        margin-top: 0px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        color: #fff;
+        text-transform: uppercase;
+        word-spacing: 5px;
+        text-shadow: 2px 2px 5px red;
+
+    }
+
+    section h1 {
+        font-family: 'Spectral', serif;
+        font-size: 44px;
+        font-weight: 600;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 30px 0 20px 0;
+    }
+
+    p {
+        line-height: 24px;
+    }
+
+    section p {
+        color: #fff;
+        font-size: 17px;
+
+        word-spacing: 2px;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 1px black;
+    }
+
+    section a {
+        display: inline-block;
+        background-color: #f2745f;
+        color: #fff;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 12px 20px;
+        border-radius: 3px;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+    }
+
+    #upper-main-section a[class="btntwo"] {
+        display: inline-block;
+        background-color: #f2745f;
+        color: #fff;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 12px 20px;
+        border-radius: 3px;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+    }
+
+    #upper-main-section .btntwo:hover {
+        color: black;
+        background-color: cadetblue;
+    }
+
+    .container .row {
+        display: flex;
+        justify-content: space-around;
+        border-radius: 50%;
+    }
+
+    /* --------------------------------------------------------------------------------------------------------------------------------- */
+    section#book-table {
+        /* padding: 80px 0px; */
+        background-image: url(./public/img/book-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        text-align: center;
+        height: 514px;
+    }
+
+    #book-table .book {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #book-table .book-content {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        /* grid-template-rows: repeat(2,2fr); */
+        grid-gap: 20px;
+        height: 282px;
+        background-color: #fff;
+        /* margin-left: -30px; */
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    #book-table .book-content .inner-book {
+        border-right: none;
+        border-left: none;
+        border-top: none;
+        width: 100%;
+        outline: none;
+        border-bottom: 2px solid teal;
+        font-size: 14px;
+        color: #9a9a9a;
+        padding: 11px 20px;
+        padding-left: 10px;
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    /* --------------------------------------------------------------------------blogs------------------------------------------------------ */
+    .our-blog .heading h1 {
+        color: #4b4c4d;
+    }
+
+    .our-blog .container .col-md-6 {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        margin-left: 40px;
+        margin-top: 30px;
+    }
+
+    .blog-post .text-button a {
+        display: inline-block;
+        background-color: #f2745f;
+        color: #fff;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        margin-top: 20px;
+        margin-bottom: 29px;
+    }
+
+    /* --------------------------------------------------------------------------contact------------------------------------------------------ */
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        /* background-color: aliceblue; */
+    }
+
+    div {
+
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+
+    }
+
+    div form input[type="text"] {
+        margin: 10px 0px;
+        height: 23px;
+        width: 230px;
+    }
+
+    div form input[type="email"] {
+        margin: 10px 0px;
+        height: 23px;
+        width: 230px;
+    }
+
+
+
+    main {
+        width: 100%;
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    section a {
+        padding: 12px 30px;
+        border-radius: 4px;
+        outline: none;
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: 400;
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+
+    section .btnone {
+        background-color: whitesmoke;
+        color: blue;
+        word-spacing: 1px;
+        border-radius: 20px;
+    }
+
+    section .btntwo {
+        background-color: cadetblue;
+        color: blue;
+        word-spacing: 1px;
+        border-radius: 20px;
+    }
+
+    section .btnone:hover {
+        background-color: blue;
+        color: white;
+        word-spacing: 1px;
+        border-radius: 40px;
+    }
+
+    section .btntwo:hover {
+        background-color: blue;
+        color: white;
+        word-spacing: 1px;
+        border-radius: 40px;
+    }
+
+    .submit {
+        width: 90px;
+        height: 40px;
+        font-size: large;
+        color: black;
+    }
+
+    .submit:hover {
+        color: white;
+        background-color: black;
+        width: 120px;
+    }
+
+
+    /* --------------------------------------------------------------------------footer------------------------------------------------------ */
+    .footer-basic {
+        padding: 40px 0;
+        color: #ffffff;
+        background-color: #4b4c4d;
+    }
+
+    .footer-basic ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    .footer-basic li {
+        padding: 0 10px;
+    }
+
+    .footer-basic ul a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.8;
+    }
+
+    .footer-basic ul a:hover {
+        opacity: 1;
+    }
+
+    .footer-basic .social {
+        text-align: center;
+        padding-bottom: 25px;
+    }
+
+    .footer-basic .social>a {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        margin: 0 8px;
+        color: inherit;
+        opacity: 0.75;
+    }
+
+    .footer-basic .social>a:hover {
+        opacity: 0.9;
+    }
+
+    .footer-basic .copyright {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        color: #aaa;
+        margin-bottom: 0;
+    }
+</style>
+
+<body>
+    <header>
+
+        <nav>
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#book-table">Book Table</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <!-- ------------------------------------------------------------ -->
+    <section id="upper-main-section">
+        <h3>Here we can provide delecious food dishes.</h3>
+        <h1>V-27 Restaurant</h1>
+        <p>"Eat fresh"</p>
+        <a href="#order" class="btntwo">Order Right Know</a>
+    </section>
+
+    <!----------------------------------------------------------------------------------------------  -->
+
+    <section id="order" class="services" style="margin-top: 50px;margin-bottom: 50px; background-color:  #eaf0ff;">
+        <div class="container">
+            <div class="row">
+                <div class="Breakfast">
+                    <div class="service-item">
+                        <img src="./public/img/cook_breakfast.png" alt="Breakfast">
+                        <h4 style="margin-left: -6px; margin-top: 20px; font-size: 20px;">Breakfast</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="Lunch">
+                    <div class="service-item">
+                        <img src="./public/img/cook_lunch.png" alt="Lunch">
+                        <h4 style="margin-left: 6px; margin-top: 20px; font-size: 20px;">Lunch</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="Dinner">
+                    <div class="service-item">
+                        <img src="./public/img/cook_dinner.png" alt="Dinner">
+                        <h4 style="margin-left: 11px; margin-top: 20px; font-size: 20px;">Dinner</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--------------------------------------------------------------------------------------------------->
+
+    <section id="book-table">
+        <div class="book-table-container">
+            <h2 style="color: whitesmoke; font-size: 30px; padding-top: 40px;">Book Your Table Now</h2>
+            <div class="book">
+
+
+                <div class="book-image"></div>
+                <img src="./public/img/book_left_image.jpg" height="282px" alt="">
+                <div class="book-right">
+                    <form class="book-content" action="http://127.0.0.1:8080/api/create-post" method="POST">
+
+                        <select name="day" type="text" class="inner-book" id="day" placeholder="Select day" required="">
+                            <option value="">Select day</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                        <!-- <input name="hours" type="text" class="inner-book" id="hours" placeholder="Select Hours"
+                            required=""> -->
+                        <!-- <select class="inner-book" required name='hour' onchange='this.form()'> -->
+                        <select name="hours" type="text" class="inner-book" id="hours" placeholder="Select Hours"
+                            required="">
+                            <option value="">Select hour</option>
+                            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                            <option value="12:00 PM -02:00 PM">12:00 PM -02:00 PM</option>
+                            <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                            <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
+                            <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM</option>
+                            <option value="08:00 PM - 10:00 PM">08:00 PM - 10:00 PM</option>
+                            <option value="10:00 PM - 12:00 PM">10:00 PM - 12:00 PM</option>
+                        </select>
+                        <input name="fullName" type="text" class="inner-book" id="fullName" placeholder="Full name"
+                            required="">
+                        <input name="phoneNumber" type="text" class="inner-book" id="phoneNumber"
+                            placeholder="Phone number" required="">
+                        <!-- <input name="howManyPersons" type="text" class="inner-book" id="howManyPersons"
+                            placeholder="How many persons?" required=""> -->
+                        <!-- <select required class="inner-book" name='persons' onchange='this.form()'> -->
+                        <select name="howManyPersons" type="text" class="inner-book" id="howManyPersons"
+                            placeholder="How many persons?" required="">
+                            <option value="">How many persons?</option>
+                            <option value="1 Person">1 Person</option>
+                            <option value="2 Persons">2 Persons</option>
+                            <option value="3 Persons">3 Persons</option>
+                            <option value="4 Persons">4 Persons</option>
+                            <option value="5 Persons">5 Persons</option>
+                            <option value="6 Persons">6 Persons</option>
+                        </select>
+                        <button type="submit" id="form-submit" class="btn" style="width: 100%;
+                        height: 40px;
+                        display: inline-block;
+                        background-color: #f2745f;
+                        color: #fff!important;
+                        font-size: 15px;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        padding: 11px 20px;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        letter-spacing: 0.5px;
+                        border: none;
+                        margin-top: 10px;">Book Table</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!----------------------------------------------------------------------------->
+    <section class="get-app" style="background-color: #f2745f; height: 146px;">
+        <div class="container">
+            <div class="row">
+                <div class="heading">
+                    <h2 style="font-size: xxx-large; margin-top: 50px; font-family:monospace;">Enjoy your precious hours
+                        in our Restaurent. </h2>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ---------------------------------blog -------------------------------------------------->
+
+    <section class="our-blog" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h1>Our blog post</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="blog-post">
+                        <img src="./public/img/blog_post_01.jpg" alt="">
+                        <div class="date" style="margin-top: 13px; margin-bottom: 13px;"> 26 Oct 2020</div>
+                        <div class="right-content">
+                            <h4 style="margin-top: 10px; margin-bottom: 10px;">Rohit sharma</h4>
+                            <span>Table Decoration</span>
+                            <p style="margin-top: 13px; margin-bottom: 13px;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
+                                Veniam voluptate nisi in ullam aspernatur accusantium
+                            </p>
+                            <div class="text-button">
+                                <a href="#">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="blog-post">
+                        <img src="./public/img/blog_post_02.jpg" alt="">
+                        <div class="date" style="margin-top: 13px; margin-bottom: 13px;">21 Oct 2020</div>
+                        <div class="right-content">
+                            <h4 style="margin-top: 10px; margin-bottom: 10px;">Hardik Pandya</h4>
+                            <span>Background music</span>
+                            <p style="margin-top: 13px; margin-bottom: 13px;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
+                                Veniam voluptate nisi in ullam aspernatur accusantium
+                            </p>
+                            <div class="text-button">
+                                <a href="#">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="blog-post">
+                        <img src="./public/img/blog_post_03.jpg" alt="">
+                        <div class="date" style="margin-top: 13px; margin-bottom: 13px;">11 Oct 2020</div>
+                        <div class="right-content">
+                            <h4 style="margin-top: 10px; margin-bottom: 10px;">MS Dhoni</h4>
+                            <span>Plate</span>
+                            <p style="margin-top: 13px; margin-bottom: 13px;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
+                                Veniam voluptate nisi in ullam aspernatur accusantium
+                            </p>
+                            <div class="text-button">
+                                <a href="#">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="blog-post">
+                        <img src="./public/img/blog_post_04.jpg" alt="">
+                        <div class="date" style="margin-top: 13px; margin-bottom: 13px;">03 Oct 2020</div>
+                        <div class="right-content">
+                            <h4 style="margin-top: 10px; margin-bottom: 10px;">Suryakumar Yadav</h4>
+                            <span>Plate Finishing</span>
+                            <p style="margin-top: 13px; margin-bottom: 13px;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
+                                Veniam voluptate nisi in ullam aspernatur accusantium
+                            </p>
+                            <div class="text-button">
+                                <a href="#">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-------------------------------------------contact--------------------------->
+    <hr style="border: 1px solid grey; font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 15px;">
+    <div id="contact">
+        <h1 style="margin-top: 20px; 
+    font-family: 'Spectral', serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;">Contact Us</h1>
+    </div>
+    <hr style="border: 1px solid grey; margin-top: -10px;font-family: 'Roboto', sans-serif;
+     font-weight: 700;
+     font-size: 15px;">
+    <div id="form">
+        <form action="" style="background-color: whitesmoke;">
+
+
+            <h3 id="6" style="padding-top: 20px; font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 15px;">Full Name</h3>
+            <input placeholder="type here" type="text"><br>
+
+            <h3 id="7" style="font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 15px;">Email</h3>
+            <input placeholder="type here" type="email"><br>
+
+            <h3 id="5" style="margin-top:20px; font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 15px;"> Description</h3> <br>
+            <textarea type="textarea" placeholder="Give some review" id="" cols="100" rows="10"></textarea><br>
+            <br>
+
+
+
+
+            <br> <button onclick="sub()" type="submit" class="submit" style="margin-bottom: 10px;font-family: 'Roboto', sans-serif;
+   font-weight: 700;
+   font-size: 15px;">submit</button>
+    </div>
+
+
+
+
+    <!-----------------------------------------------------------footer-section----------------------------------------------------------------------------->
+    <div class="footer-basic" style="height:70px;">
+        <footer>
+            <div class="social" style="margin-left: 20px;">
+                <a href="#"><i class="fa-brands fa-instagram" style="margin-top: 7px;"></i></a>
+                <a href="#"><i class="fa-brands fa-snapchat" style="margin-top: 7px;"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter" style="margin-top: 7px;"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook" style="margin-top: 7px;"></i></a>
+            </div>
+
+            <p class="copyright" style="font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            margin-left: 10px; ">copyright © 2022 V-27 Restaurant</p>
+        </footer>
+    </div>
+    <!-- ./Footer -->
+
+
+</body>
+
+</html>
