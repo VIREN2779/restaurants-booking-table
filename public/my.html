@@ -425,63 +425,31 @@
                 <div class="book-image"></div>
                 <img src="./public/img/book_left_image.jpg" height="282px" alt="">
                 <div class="book-right">
-                    <form class="book-content" action="http://127.0.0.1:8080/api/create-post" method="POST">
+                    <form class="book-content" id="bookForm">
 
-                        <select name="day" type="text" class="inner-book" id="day" placeholder="Select day" required="">
-                            <option value="">Select day</option>
-                            <option value="Monday">Monday</option>
-                            <option value="Tuesday">Tuesday</option>
-                            <option value="Wednesday">Wednesday</option>
-                            <option value="Thursday">Thursday</option>
-                            <option value="Friday">Friday</option>
-                            <option value="Saturday">Saturday</option>
-                            <option value="Sunday">Sunday</option>
-                        </select>
-                        <!-- <input name="hours" type="text" class="inner-book" id="hours" placeholder="Select Hours"
-                            required=""> -->
-                        <!-- <select class="inner-book" required name='hour' onchange='this.form()'> -->
-                        <select name="hours" type="text" class="inner-book" id="hours" placeholder="Select Hours"
+                        <input name="name" type="name" class="inner-book" id="day" placeholder="Select day" required="">
+                        <input name="name" type="name" class="inner-book" id="hours" placeholder="Select Hours"
                             required="">
-                            <option value="">Select hour</option>
-                            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
-                            <option value="12:00 PM -02:00 PM">12:00 PM -02:00 PM</option>
-                            <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
-                            <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM</option>
-                            <option value="06:00 PM - 08:00 PM">06:00 PM - 08:00 PM</option>
-                            <option value="08:00 PM - 10:00 PM">08:00 PM - 10:00 PM</option>
-                            <option value="10:00 PM - 12:00 PM">10:00 PM - 12:00 PM</option>
-                        </select>
-                        <input name="fullName" type="text" class="inner-book" id="fullName" placeholder="Full name"
+                        <input name="name" type="name" class="inner-book" id="fullName" placeholder="Full name"
                             required="">
-                        <input name="phoneNumber" type="text" class="inner-book" id="phoneNumber"
-                            placeholder="Phone number" required="">
-                        <!-- <input name="howManyPersons" type="text" class="inner-book" id="howManyPersons"
-                            placeholder="How many persons?" required=""> -->
-                        <!-- <select required class="inner-book" name='persons' onchange='this.form()'> -->
-                        <select name="howManyPersons" type="text" class="inner-book" id="howManyPersons"
-                            placeholder="How many persons?" required="">
-                            <option value="">How many persons?</option>
-                            <option value="1 Person">1 Person</option>
-                            <option value="2 Persons">2 Persons</option>
-                            <option value="3 Persons">3 Persons</option>
-                            <option value="4 Persons">4 Persons</option>
-                            <option value="5 Persons">5 Persons</option>
-                            <option value="6 Persons">6 Persons</option>
-                        </select>
+                        <input name="phone" type="phone" class="inner-book" id="phone" placeholder="Phone number"
+                            required="">
+                        <input name="name" type="name" class="inner-book" id="persons" placeholder="How many persons?"
+                            required="">
                         <button type="submit" id="form-submit" class="btn" style="width: 100%;
-                        height: 40px;
-                        display: inline-block;
-                        background-color: #f2745f;
-                        color: #fff!important;
-                        font-size: 15px;
-                        text-transform: uppercase;
-                        font-weight: 700;
-                        padding: 11px 20px;
-                        border-radius: 5px;
-                        text-decoration: none;
-                        letter-spacing: 0.5px;
-                        border: none;
-                        margin-top: 10px;">Book Table</button>
+                                        height: 40px;
+                                        display: inline-block;
+                                        background-color: #f2745f;
+                                        color: #fff!important;
+                                        font-size: 15px;
+                                        text-transform: uppercase;
+                                        font-weight: 700;
+                                        padding: 11px 20px;
+                                        border-radius: 5px;
+                                        text-decoration: none;
+                                        letter-spacing: 0.5px;
+                                        border: none;
+                                        margin-top: 10px;">Book Table</button>
                     </form>
                 </div>
 
@@ -650,6 +618,30 @@
     <!-- ./Footer -->
 
 
+    <script>
+        document.getElementById("bookForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+                day: document.querySelector('#day').value,
+                hours: document.querySelector('#hours').value,
+                fullName: document.querySelector('#fullName').value,
+                phoneNumber: document.querySelector('#phone').value,
+                howManyPersons: document.querySelector('#persons').value,
+            };
+
+            const res = await fetch("http://127.0.0.1:8080/api/create-post", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            console.log(result);
+        });
+    </script>
 </body>
 
 </html>
