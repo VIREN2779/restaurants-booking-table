@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 hostname = '127.0.0.1';
 const port = process.env.port || 8080;
 
+require('dotenv').config();
+
 app.use(cors({
   origin: '*'
 }))
