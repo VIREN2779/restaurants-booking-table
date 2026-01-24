@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 exports.handler = async (event) => {
     try {
         const data = JSON.parse(event.body);
@@ -16,10 +14,21 @@ exports.handler = async (event) => {
 
         const url = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
 
-        await axios.post(url, {
-            chat_id: process.env.TELEGRAM_CHAT_ID,
-            text: message,
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: process.env.TELEGRAM_CHAT_ID,
+                text: message,
+            }),
         });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText);
+        }
 
         return {
             statusCode: 200,
