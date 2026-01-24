@@ -630,7 +630,8 @@
                 howManyPersons: document.querySelector('#persons').value,
             };
 
-            const res = await fetch("http://127.0.0.1:8080/api/create-post", {
+            // const res = await fetch("http://127.0.0.1:8080/api/create-post", { // use this for mongoDB
+            const res = await fetch("/.netlify/functions/bookTable", { // use this for netlify, telegram bot message
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
