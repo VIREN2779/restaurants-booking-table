@@ -374,6 +374,7 @@ nav .menu a:hover {
     margin-bottom: 13px;
     color: #999;
     font-size: 14px;
+    padding: 0 20px;
 }
 
 .blog-post .right-content {
@@ -422,24 +423,13 @@ nav .menu a:hover {
 /* ========================================
    CONTACT SECTION
    ======================================== */
-#contact {
-    padding: 40px 20px;
-    background-color: #fff;
-}
-
 #contact h1 {
-    margin-top: 20px;
-    margin-bottom: 30px;
     font-family: 'Spectral', serif;
     font-size: 24px;
     font-weight: 700;
     text-transform: uppercase;
     color: #4b4c4d;
     text-align: center;
-}
-
-hr {
-    border: 1px solid #ddd;
 }
 
 #form {
@@ -457,7 +447,6 @@ hr {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 15px;
-    margin-bottom: 10px;
     color: #4b4c4d;
     text-align: left;
 }
@@ -465,8 +454,8 @@ hr {
 #form input {
     width: 100%;
     max-width: 100%;
-    margin: 10px 0;
     height: 45px;
+    margin-bottom: 10px;
     padding: 0 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -481,7 +470,6 @@ hr {
 #form textarea {
     width: 100%;
     max-width: 100%;
-    margin: 10px 0;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
