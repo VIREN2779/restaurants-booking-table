@@ -236,20 +236,105 @@
     </section>
 
     <!-- Contact Section -->
-    <div id="form">
-        <div id="contact">
-            <h1>Contact Us</h1>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2 class="contact-title">Get In Touch</h2>
+                <p class="contact-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- Contact Info Column -->
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <p class="contact-desc">Feel free to reach out to us for reservations, inquiries, or feedback. We're here to serve you.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Address</h4>
+                                    <p>123 Restaurant Street, Food City, FC 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:info@v29restaurant.com">info@v29restaurant.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-social">
+                            <h4>Follow Us</h4>
+                            <div class="social-links">
+                                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Column -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send us a Message</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="contactName" name="name" required placeholder=" ">
+                                <label for="contactName">Full Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contactEmail" name="email" required placeholder=" ">
+                                <label for="contactEmail">Email Address</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="contactPhone" name="phone" placeholder=" ">
+                            <label for="contactPhone">Phone Number (Optional)</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="contactSubject" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="reservation">Table Reservation</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="inquiry">General Inquiry</option>
+                                <option value="catering">Catering Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" name="message" required placeholder=" " rows="5"></textarea>
+                            <label for="contactMessage">Your Message</label>
+                        </div>
+                        <button type="submit" class="contact-submit-btn">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <form action="">
-            <h3>Full Name</h3>
-            <input placeholder="Axel smith" type="text"><br>
-            <h3>Email</h3>
-            <input placeholder="hi@axel.com" type="email"><br>
-            <h3>Description</h3>
-            <textarea placeholder="Give some review" cols="100" rows="10"></textarea><br>
-            <button type="submit" class="submit">Get in touch</button>
-        </form>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="trendy-footer">
