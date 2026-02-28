@@ -34,10 +34,39 @@
 
     <!-- Hero Section -->
     <section id="upper-main-section">
-        <h3>Here we can provide delicious food dishes.</h3>
-        <h1>V-29 Restaurant</h1>
-        <p>"Eat fresh"</p>
-        <a href="#order" class="btntwo">Order Right Now</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="rating">★ 4.9</span>
+                <span class="rating-text">Excellent</span>
+            </div>
+            <h3 class="hero-subtitle">Welcome to V-29 Restaurant</h3>
+            <h1 class="hero-title">A World of Taste on Every Plate.</h1>
+            <p class="hero-description">
+                We serve a wide variety of delicious dishes prepared with fresh ingredients and authentic flavors. Enjoy
+                quality meals with family and friends in a warm and welcoming atmosphere.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#order" class="btn-primary">Order Now</a>
+                <a href="#book-table" class="btn-secondary">Book a Table</a>
+            </div>
+            <div class="hero-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Open: 10:00 AM - 10:00 PM</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Fine Dining & Fresh Ingredients</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
@@ -138,7 +167,9 @@
                             <h4>Our Chef's Special Recipes</h4>
                             <span>Signature Dishes</span>
                             <p>
-                                Discover the art of fine dining with our chef's signature recipes. Each dish is crafted with passion and precision, using traditional techniques combined with modern flavors to create an unforgettable culinary experience.
+                                Discover the art of fine dining with our chef's signature recipes. Each dish is crafted
+                                with passion and precision, using traditional techniques combined with modern flavors to
+                                create an unforgettable culinary experience.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -154,7 +185,9 @@
                             <h4>Fresh Ingredients, Delicious Meals</h4>
                             <span>Farm to Table</span>
                             <p>
-                                We believe great food starts with fresh ingredients. Our commitment to quality means sourcing the finest produce from local farmers, ensuring every meal is healthy, flavorful, and sustainably prepared.
+                                We believe great food starts with fresh ingredients. Our commitment to quality means
+                                sourcing the finest produce from local farmers, ensuring every meal is healthy,
+                                flavorful, and sustainably prepared.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -170,7 +203,9 @@
                             <h4>Host Your Special Events</h4>
                             <span>Private Dining</span>
                             <p>
-                                Make your celebrations memorable at V-29 Restaurant. From birthday parties to corporate events, our private dining spaces and dedicated staff ensure your special occasions are perfectly catered.
+                                Make your celebrations memorable at V-29 Restaurant. From birthday parties to corporate
+                                events, our private dining spaces and dedicated staff ensure your special occasions are
+                                perfectly catered.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -186,7 +221,9 @@
                             <h4>What Our Customers Say</h4>
                             <span>Testimonials</span>
                             <p>
-                                We take pride in exceeding our guests' expectations. Read what our valued customers have to say about their dining experience at V-29 Restaurant – where every meal becomes a cherished memory.
+                                We take pride in exceeding our guests' expectations. Read what our valued customers have
+                                to say about their dining experience at V-29 Restaurant – where every meal becomes a
+                                cherished memory.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -335,15 +372,15 @@
         ];
         function populateHours(day) {
             hoursSelect.innerHTML = '<option value="" disabled selected>Select Hours</option>';
-            
+
             let timeSlots = [];
-            
+
             if (day === "Saturday" || day === "Sunday") {
                 timeSlots = weekendTimeSlots;
             } else {
                 timeSlots = weekdayTimeSlots;
             }
-            
+
             timeSlots.forEach(slot => {
                 const option = document.createElement("option");
                 option.value = slot;
@@ -352,7 +389,7 @@
             });
         }
 
-        daySelect.addEventListener("change", function() {
+        daySelect.addEventListener("change", function () {
             const selectedDay = this.value;
             if (selectedDay) {
                 populateHours(selectedDay);
