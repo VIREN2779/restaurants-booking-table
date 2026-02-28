@@ -75,15 +75,39 @@
                 <img src="img/book_left_image.jpg" alt="">
                 <div class="book-right">
                     <form class="book-content" id="bookForm">
-                        <input name="name" type="name" class="inner-book" id="day" placeholder="Select day" required="">
-                        <input name="name" type="name" class="inner-book" id="hours" placeholder="Select Hours"
-                            required="">
+                        <select name="day" class="inner-book" id="day" required="">
+                            <option value="" disabled selected>Select day</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                        <select name="hours" class="inner-book" id="hours" required="">
+                            <option value="" disabled selected>Select Hours</option>
+                            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                            <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
+                            <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
+                            <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
+                            <option value="06:00 PM - 07:00 PM">06:00 PM - 07:00 PM</option>
+                            <option value="07:00 PM - 08:00 PM">07:00 PM - 08:00 PM</option>
+                            <option value="08:00 PM - 09:00 PM">08:00 PM - 09:00 PM</option>
+                            <option value="09:00 PM - 10:00 PM">09:00 PM - 10:00 PM</option>
+                        </select>
                         <input name="name" type="name" class="inner-book" id="fullName" placeholder="Full name"
                             required="">
-                        <input name="phone" type="phone" class="inner-book" id="phone" placeholder="Phone number"
+                        <input name="phone" type="number" class="inner-book" id="phone" placeholder="Phone number"
                             required="">
-                        <input name="name" type="name" class="inner-book" id="persons" placeholder="How many persons?"
-                            required="">
+                        <select name="persons" class="inner-book" id="persons" required="">
+                            <option value="" disabled selected>How many persons?</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="10">10</option>
+                        </select>
                         <button type="submit" id="form-submit" class="btn" aria-live="polite">
                             <span class="btn-text">Book Table</span>
                         </button>
