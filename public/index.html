@@ -75,16 +75,42 @@
                 <img src="img/book_left_image.jpg" alt="">
                 <div class="book-right">
                     <form class="book-content" id="bookForm">
-                        <input name="name" type="name" class="inner-book" id="day" placeholder="Select day" required="">
-                        <input name="name" type="name" class="inner-book" id="hours" placeholder="Select Hours"
-                            required="">
+                        <select name="day" class="inner-book" id="day" required="">
+                            <option value="" disabled selected>Select day</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                        <select name="hours" class="inner-book" id="hours" required="">
+                            <option value="" disabled selected>Select Hours</option>
+                            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                            <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
+                            <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
+                            <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
+                            <option value="06:00 PM - 07:00 PM">06:00 PM - 07:00 PM</option>
+                            <option value="07:00 PM - 08:00 PM">07:00 PM - 08:00 PM</option>
+                            <option value="08:00 PM - 09:00 PM">08:00 PM - 09:00 PM</option>
+                            <option value="09:00 PM - 10:00 PM">09:00 PM - 10:00 PM</option>
+                        </select>
                         <input name="name" type="name" class="inner-book" id="fullName" placeholder="Full name"
                             required="">
-                        <input name="phone" type="phone" class="inner-book" id="phone" placeholder="Phone number"
+                        <input name="phone" type="number" class="inner-book" id="phone" placeholder="Phone number"
                             required="">
-                        <input name="name" type="name" class="inner-book" id="persons" placeholder="How many persons?"
-                            required="">
-                        <button type="submit" id="form-submit" class="btn">Book Table</button>
+                        <select name="persons" class="inner-book" id="persons" required="">
+                            <option value="" disabled selected>How many persons?</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button type="submit" id="form-submit" class="btn" aria-live="polite">
+                            <span class="btn-text">Book Table</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -214,6 +240,7 @@
         </footer>
     </div>
 
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
@@ -232,8 +259,46 @@
             });
         });
 
-        // Form Submission
-        document.getElementById("bookForm").addEventListener("submit", async (e) => {
+        // store references
+        const bookForm = document.getElementById("bookForm");
+        const submitBtn = document.getElementById("form-submit");
+        const btnTextSpan = submitBtn.querySelector(".btn-text");
+        const toastContainer = document.getElementById("toast-container");
+
+        // helper: create spinner + text HTML
+        const spinnerHtml = () => `
+    <span class="spinner" role="status" aria-hidden="true"></span>
+    <span class="btn-text">Loading</span>
+  `;
+
+        // helper: show toast
+        function showToast(message = "", type = "success", timeout = 4000) {
+            const toast = document.createElement("div");
+            toast.className = "toast " + (type === "error" ? "toast-error" : "toast-success");
+            toast.innerHTML = `
+      <div class="toast-message">${message}</div>
+      <button class="toast-close" aria-label="Close">&times;</button>
+    `;
+            toastContainer.appendChild(toast);
+
+            // remove function
+            const remove = () => {
+                toast.classList.add("toast-hide");
+                setTimeout(() => toast.remove(), 350);
+            };
+
+            // auto remove
+            const tId = setTimeout(remove, timeout);
+
+            // close button
+            toast.querySelector(".toast-close").addEventListener("click", () => {
+                clearTimeout(tId);
+                remove();
+            });
+        }
+
+        // submit handler with spinner + toast
+        bookForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             const data = {
@@ -244,17 +309,43 @@
                 howManyPersons: document.querySelector('#persons').value,
             };
 
-            // const res = await fetch("http://127.0.0.1:8080/api/create-post", { // use this for mongoDB
-            const res = await fetch("/.netlify/functions/bookTable", { // use this for netlify, telegram bot message
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+            // set button to loading state
+            submitBtn.disabled = true;
+            submitBtn.setAttribute("aria-busy", "true");
+            submitBtn.innerHTML = spinnerHtml();
 
-            const result = await res.json();
-            console.log(result);
+            try {
+                // const res = await fetch("http://127.0.0.1:8080/api/create-post", { // use this for mongoDB
+                const res = await fetch("/.netlify/functions/bookTable", { // use this for netlify, telegram bot message
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!res.ok) {
+                    const serverText = await res.text().catch(() => res.statusText || "Server error");
+                    throw new Error(serverText || `Request failed: ${res.status}`);
+                }
+
+                let result;
+                try { result = await res.json(); } catch { result = { success: true }; }
+
+                if (result && result.success) {
+                    bookForm.reset();
+                    showToast(result.message || "Table booked successfully!", "success");
+                } else {
+                    showToast(result.message || "Failed to book table.", "error");
+                }
+            } catch (err) {
+                console.error("Booking error:", err);
+                showToast(err.message || "Network or server error", "error");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.setAttribute("aria-busy", "false");
+                submitBtn.innerHTML = `<span class="btn-text">Book Table</span>`;
+            }
         });
     </script>
 </body>

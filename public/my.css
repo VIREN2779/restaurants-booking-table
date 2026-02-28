@@ -571,6 +571,117 @@ nav .menu a:hover {
     color: #aaa;
 }
 
+#book-table .book-content button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#book-table .book-content .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-top-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.9s linear infinite;
+    box-sizing: border-box;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#book-table .book-content button[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.toast {
+    pointer-events: auto;
+    min-width: 220px;
+    max-width: 360px;
+    margin-top: 10px;
+    background: #fff;
+    color: #222;
+    padding: 12px 14px;
+    border-radius: 8px;
+    box-shadow: 0 8px 22px rgba(17, 24, 39, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 6px solid #4caf50;
+    /* default success */
+    transform: translateY(12px);
+    opacity: 0;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.toast:not(.toast-hide) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast.toast-hide {
+    transform: translateY(12px);
+    opacity: 0;
+}
+
+.toast-message {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.toast-close {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    color: #888;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.toast-error {
+    border-left-color: #e74c3c;
+}
+
+.toast-success {
+    border-left-color: #4caf50;
+}
+
+@media (max-width: 480px) {
+    .toast-container {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        align-items: stretch;
+    }
+
+    .toast {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 /* ========================================
    MEDIA QUERIES - RESPONSIVE BREAKPOINTS
    ======================================== */
@@ -581,23 +692,23 @@ nav .menu a:hover {
         min-height: 500px;
         padding: 150px 0;
     }
-    
+
     #upper-main-section h1 {
         font-size: 52px;
     }
-    
+
     .services .row {
         gap: 80px;
     }
-    
+
     #book-table {
         padding: 80px 0;
     }
-    
+
     #book-table h2 {
         font-size: 36px;
     }
-    
+
     .our-blog .heading h1 {
         font-size: 40px;
     }
@@ -608,19 +719,19 @@ nav .menu a:hover {
     nav .menu {
         gap: 20px;
     }
-    
+
     #upper-main-section h1 {
         font-size: 42px;
     }
-    
+
     .services .row {
         gap: 40px;
     }
-    
+
     .our-blog .row {
         gap: 25px;
     }
-    
+
     .blog-post img {
         height: 200px;
     }
@@ -632,11 +743,11 @@ nav .menu a:hover {
     nav {
         padding: 0 15px;
     }
-    
+
     .hamburger {
         display: flex;
     }
-    
+
     nav .menu {
         position: absolute;
         top: 70px;
@@ -651,66 +762,66 @@ nav .menu a:hover {
         transition: max-height 0.3s ease;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
-    
+
     nav .menu.active {
         max-height: 300px;
     }
-    
+
     nav .menu li {
         border-bottom: 1px solid #eee;
     }
-    
+
     nav .menu a {
         display: block;
         padding: 15px 20px;
         margin: 0;
     }
-    
+
     /* Hero */
     #upper-main-section {
         min-height: 350px;
         padding: 80px 20px;
     }
-    
+
     #upper-main-section h1 {
         font-size: 32px;
     }
-    
+
     #upper-main-section h3 {
         font-size: 12px;
     }
-    
+
     /* Services */
     .services .row {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .services .Breakfast,
     .services .Lunch,
     .services .Dinner {
         max-width: 100%;
     }
-    
+
     /* Book Table */
     #book-table .book {
         flex-direction: column;
         align-items: center;
     }
-    
+
     #book-table .book-content {
         grid-template-columns: 1fr;
     }
-    
+
     /* Blog */
     .our-blog .row {
         grid-template-columns: 1fr;
     }
-    
+
     .blog-post img {
         height: 200px;
     }
-    
+
     /* Get App */
     .get-app .heading h2 {
         font-size: 20px;
@@ -724,15 +835,15 @@ nav .menu a:hover {
         padding: 0 15px;
         min-height: 60px;
     }
-    
+
     nav .logo {
         font-size: 20px;
     }
-    
+
     .hamburger {
         display: flex;
     }
-    
+
     nav .menu {
         position: absolute;
         top: 60px;
@@ -747,167 +858,167 @@ nav .menu a:hover {
         transition: max-height 0.3s ease;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
-    
+
     nav .menu.active {
         max-height: 300px;
     }
-    
+
     nav .menu li {
         border-bottom: 1px solid #eee;
     }
-    
+
     nav .menu a {
         display: block;
         padding: 12px 20px;
         margin: 0;
         font-size: 14px;
     }
-    
+
     /* Hero Section */
     #upper-main-section {
         min-height: 300px;
         padding: 60px 15px;
     }
-    
+
     #upper-main-section h3 {
         font-size: 11px;
         word-spacing: 2px;
     }
-    
+
     #upper-main-section h1 {
         font-size: 26px;
         margin: 10px 0;
     }
-    
+
     #upper-main-section p {
         font-size: 14px;
     }
-    
+
     #upper-main-section a,
     #upper-main-section a.btntwo {
         padding: 10px 18px;
         font-size: 12px;
     }
-    
+
     /* Services */
-    
+
     .services .row {
         flex-direction: column;
         align-items: center;
         gap: 30px;
     }
-    
+
     .services .Breakfast,
     .services .Lunch,
     .services .Dinner {
         max-width: 100%;
     }
-    
+
     .services .service-item img {
         width: 150px;
         height: 150px;
     }
-    
+
     /* Book Table */
     #book-table {
         padding: 40px 15px;
     }
-    
+
     #book-table h2 {
         font-size: 22px;
         padding-top: 10px;
     }
-    
+
     #book-table .book {
         flex-direction: column;
         align-items: center;
     }
-    
+
     #book-table .book-right {
         min-width: 100%;
     }
-    
+
     #book-table .book-content {
         grid-template-columns: 1fr;
         padding: 15px;
     }
-    
+
     #book-table .book-content .inner-book {
         padding: 10px 8px;
         font-size: 13px;
     }
-    
+
     /* Get App */
     .get-app {
         padding: 30px 15px;
     }
-    
+
     .get-app .heading h2 {
         font-size: 18px;
     }
-    
+
     /* Blog */
     .our-blog {
         padding: 40px 15px;
     }
-    
+
     .our-blog .heading h1 {
         font-size: 26px;
         margin-bottom: 30px;
     }
-    
+
     .our-blog .row {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .blog-post img {
         height: 180px;
     }
-    
+
     .blog-post .right-content {
         padding: 0 15px 15px;
     }
-    
+
     .blog-post .right-content h4 {
         font-size: 18px;
     }
-    
+
     .blog-post .right-content p {
         font-size: 14px;
     }
-    
+
     /* Contact */
     #contact h1 {
         font-size: 22px;
     }
-    
+
     #form {
         padding: 20px 15px;
     }
-    
+
     #form h3 {
         font-size: 14px;
     }
-    
+
     #form input {
         height: 40px;
     }
-    
+
     .submit {
         max-width: 100%;
     }
-    
+
     /* Footer */
     .footer-basic {
         padding: 20px 15px;
     }
-    
+
     .footer-basic ul {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .footer-basic .social {
         padding: 15px 0;
     }
