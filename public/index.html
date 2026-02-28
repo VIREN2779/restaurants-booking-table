@@ -84,7 +84,9 @@
                             required="">
                         <input name="name" type="name" class="inner-book" id="persons" placeholder="How many persons?"
                             required="">
-                        <button type="submit" id="form-submit" class="btn">Book Table</button>
+                        <button type="submit" id="form-submit" class="btn" aria-live="polite">
+                            <span class="btn-text">Book Table</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -214,6 +216,7 @@
         </footer>
     </div>
 
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
@@ -232,8 +235,46 @@
             });
         });
 
-        // Form Submission
-        document.getElementById("bookForm").addEventListener("submit", async (e) => {
+        // store references
+        const bookForm = document.getElementById("bookForm");
+        const submitBtn = document.getElementById("form-submit");
+        const btnTextSpan = submitBtn.querySelector(".btn-text");
+        const toastContainer = document.getElementById("toast-container");
+
+        // helper: create spinner + text HTML
+        const spinnerHtml = () => `
+    <span class="spinner" role="status" aria-hidden="true"></span>
+    <span class="btn-text">Loading</span>
+  `;
+
+        // helper: show toast
+        function showToast(message = "", type = "success", timeout = 4000) {
+            const toast = document.createElement("div");
+            toast.className = "toast " + (type === "error" ? "toast-error" : "toast-success");
+            toast.innerHTML = `
+      <div class="toast-message">${message}</div>
+      <button class="toast-close" aria-label="Close">&times;</button>
+    `;
+            toastContainer.appendChild(toast);
+
+            // remove function
+            const remove = () => {
+                toast.classList.add("toast-hide");
+                setTimeout(() => toast.remove(), 350);
+            };
+
+            // auto remove
+            const tId = setTimeout(remove, timeout);
+
+            // close button
+            toast.querySelector(".toast-close").addEventListener("click", () => {
+                clearTimeout(tId);
+                remove();
+            });
+        }
+
+        // submit handler with spinner + toast
+        bookForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             const data = {
@@ -244,21 +285,42 @@
                 howManyPersons: document.querySelector('#persons').value,
             };
 
-            // const res = await fetch("http://127.0.0.1:8080/api/create-post", { // use this for mongoDB
-            const res = await fetch("/.netlify/functions/bookTable", { // use this for netlify, telegram bot message
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+            // set button to loading state
+            submitBtn.disabled = true;
+            submitBtn.setAttribute("aria-busy", "true");
+            submitBtn.innerHTML = spinnerHtml();
 
-            const result = await res.json();
-            console.log(result);
+            try {
+                // const res = await fetch("http://127.0.0.1:8080/api/create-post", { // use this for mongoDB
+                const res = await fetch("/.netlify/functions/bookTable", { // use this for netlify, telegram bot message
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
 
-            // Clear form fields after successful submission
-            if (result.success) {
-                document.getElementById("bookForm").reset();
+                if (!res.ok) {
+                    const serverText = await res.text().catch(() => res.statusText || "Server error");
+                    throw new Error(serverText || `Request failed: ${res.status}`);
+                }
+
+                let result;
+                try { result = await res.json(); } catch { result = { success: true }; }
+
+                if (result && result.success) {
+                    bookForm.reset();
+                    showToast(result.message || "Table booked successfully!", "success");
+                } else {
+                    showToast(result.message || "Failed to book table.", "error");
+                }
+            } catch (err) {
+                console.error("Booking error:", err);
+                showToast(err.message || "Network or server error", "error");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.setAttribute("aria-busy", "false");
+                submitBtn.innerHTML = `<span class="btn-text">Book Table</span>`;
             }
         });
     </script>
