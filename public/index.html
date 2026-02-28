@@ -34,10 +34,39 @@
 
     <!-- Hero Section -->
     <section id="upper-main-section">
-        <h3>Here we can provide delicious food dishes.</h3>
-        <h1>V-29 Restaurant</h1>
-        <p>"Eat fresh"</p>
-        <a href="#order" class="btntwo">Order Right Now</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="rating">★ 4.9</span>
+                <span class="rating-text">Excellent</span>
+            </div>
+            <h3 class="hero-subtitle">Welcome to V-29 Restaurant</h3>
+            <h1 class="hero-title">A World of Taste on Every Plate.</h1>
+            <p class="hero-description">
+                We serve a wide variety of delicious dishes prepared with fresh ingredients and authentic flavors. Enjoy
+                quality meals with family and friends in a warm and welcoming atmosphere.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#order" class="btn-primary">Order Now</a>
+                <a href="#book-table" class="btn-secondary">Book a Table</a>
+            </div>
+            <div class="hero-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span id="hero-opening-hours">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Fine Dining & Fresh Ingredients</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
@@ -68,50 +97,112 @@
 
     <!-- Book Table Section -->
     <section id="book-table">
-        <div class="book-table-container">
-            <h2>BOOK YOUR TABLE NOW</h2>
-            <div class="book">
-                <div class="book-image"></div>
-                <img src="img/book_left_image.jpg" alt="">
-                <div class="book-right">
-                    <form class="book-content" id="bookForm">
-                        <select name="day" class="inner-book" id="day" required="">
-                            <option value="" disabled selected>Select day</option>
-                            <option value="Monday">Monday</option>
-                            <option value="Tuesday">Tuesday</option>
-                            <option value="Wednesday">Wednesday</option>
-                            <option value="Thursday">Thursday</option>
-                            <option value="Friday">Friday</option>
-                            <option value="Saturday">Saturday</option>
-                            <option value="Sunday">Sunday</option>
-                        </select>
-                        <select name="hours" class="inner-book" id="hours" required="">
-                            <option value="" disabled selected>Select Hours</option>
-                            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-                            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
-                            <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
-                            <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
-                            <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
-                            <option value="06:00 PM - 07:00 PM">06:00 PM - 07:00 PM</option>
-                            <option value="07:00 PM - 08:00 PM">07:00 PM - 08:00 PM</option>
-                            <option value="08:00 PM - 09:00 PM">08:00 PM - 09:00 PM</option>
-                            <option value="09:00 PM - 10:00 PM">09:00 PM - 10:00 PM</option>
-                        </select>
-                        <input name="name" type="name" class="inner-book" id="fullName" placeholder="Full name"
-                            required="">
-                        <input name="phone" type="number" class="inner-book" id="phone" placeholder="Phone number"
-                            required="">
-                        <select name="persons" class="inner-book" id="persons" required="">
-                            <option value="" disabled selected>How many persons?</option>
-                            <option value="2">2</option>
-                            <option value="4">4</option>
-                            <option value="6">6</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button type="submit" id="form-submit" class="btn" aria-live="polite">
-                            <span class="btn-text">Book Table</span>
-                        </button>
-                    </form>
+        <div class="book-table-wrapper">
+            <!-- Decorative Background Elements -->
+            <div class="book-table-bg-pattern"></div>
+            <div class="book-table-bg-accent"></div>
+            
+            <div class="book-table-container">
+                <!-- Section Header -->
+                <div class="book-table-header">
+                    <div class="header-badge">
+                        <span class="badge-icon">✦</span>
+                        <span>Reserve Your Spot</span>
+                    </div>
+                    <h2 class="book-table-title">Book Your Table</h2>
+                    <p class="book-table-subtitle">Experience fine dining in an intimate atmosphere. Reserve your table now for an unforgettable culinary journey.</p>
+                </div>
+
+                <div class="book-table-content">
+                    <!-- Info Card -->
+                    <div class="book-info-card">
+                        <div class="info-card-header">
+                            <h3>Restaurant Hours</h3>
+                            <span class="info-badge">Open Today</span>
+                        </div>
+                        
+                        <div class="info-hours">
+                            <div class="hours-item">
+                                <div class="day">Monday - Friday</div>
+                                <div class="time">10:00 AM - 10:00 PM</div>
+                            </div>
+                            <div class="hours-item">
+                                <div class="day">Saturday - Sunday</div>
+                                <div class="time">11:00 AM - 12:00 AM</div>
+                            </div>
+                        </div>
+
+                        <div class="info-contact">
+                            <div class="contact-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>+1 (234) 567-890</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>reservations@v29.com</span>
+                            </div>
+                        </div>
+
+                        <div class="info-note">
+                            <i class="fa-solid fa-info-circle"></i>
+                            <span>For parties of 10+, please call us directly for special arrangements.</span>
+                        </div>
+                    </div>
+
+                    <!-- Booking Form Card -->
+                    <div class="book-form-card">
+                        <form class="booking-form" id="bookForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <i class="fa-regular fa-calendar-days"></i>
+                                    <select name="day" id="day" required="">
+                                        <option value="" disabled selected>Select Day</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa-regular fa-clock"></i>
+                                    <select name="hours" id="hours" required="">
+                                        <option value="" disabled selected>Select Time</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <i class="fa-regular fa-user"></i>
+                                    <input name="name" type="text" id="fullName" placeholder="Full Name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input name="phone" type="tel" id="phone" placeholder="Phone Number" required="">
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <i class="fa-solid fa-users"></i>
+                                <select name="persons" id="persons" required="">
+                                    <option value="" disabled selected>Number of Guests</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="8">8 Guests</option>
+                                    <option value="10">10 Guests</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" id="form-submit" class="btn-book" aria-live="polite">
+                                <span class="btn-text">Confirm Reservation</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,7 +225,7 @@
             <div class="row" style="display: flex;justify-content: center;">
                 <div class="col-md-12">
                     <div class="heading">
-                        <h1>OUR BLOG POST</h1>
+                        <h1>OUR BLOG</h1>
                     </div>
                 </div>
             </div>
@@ -144,11 +235,12 @@
                         <img src="img/blog_post_01.jpg" alt="">
                         <div class="date">26 Oct 2020</div>
                         <div class="right-content">
-                            <h4>Rohit Sharma</h4>
-                            <span>Table Decoration</span>
+                            <h4>Our Chef's Special Recipes</h4>
+                            <span>Signature Dishes</span>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
-                                Veniam voluptate nisi in ullam aspernatur accusantium
+                                Discover the art of fine dining with our chef's signature recipes. Each dish is crafted
+                                with passion and precision, using traditional techniques combined with modern flavors to
+                                create an unforgettable culinary experience.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -161,11 +253,12 @@
                         <img src="img/blog_post_02.jpg" alt="">
                         <div class="date">21 Oct 2020</div>
                         <div class="right-content">
-                            <h4>Hardik Pandya</h4>
-                            <span>Background music</span>
+                            <h4>Fresh Ingredients, Delicious Meals</h4>
+                            <span>Farm to Table</span>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
-                                Veniam voluptate nisi in ullam aspernatur accusantium
+                                We believe great food starts with fresh ingredients. Our commitment to quality means
+                                sourcing the finest produce from local farmers, ensuring every meal is healthy,
+                                flavorful, and sustainably prepared.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -178,11 +271,12 @@
                         <img src="img/blog_post_03.jpg" alt="">
                         <div class="date">11 Oct 2020</div>
                         <div class="right-content">
-                            <h4>MS Dhoni</h4>
-                            <span>Plate</span>
+                            <h4>Host Your Special Events</h4>
+                            <span>Private Dining</span>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
-                                Veniam voluptate nisi in ullam aspernatur accusantium
+                                Make your celebrations memorable at V-29 Restaurant. From birthday parties to corporate
+                                events, our private dining spaces and dedicated staff ensure your special occasions are
+                                perfectly catered.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -195,11 +289,12 @@
                         <img src="img/blog_post_04.jpg" alt="">
                         <div class="date">03 Oct 2020</div>
                         <div class="right-content">
-                            <h4>Suryakumar Yadav</h4>
-                            <span>Plate Finishing</span>
+                            <h4>What Our Customers Say</h4>
+                            <span>Testimonials</span>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maiores neque iusto quo?
-                                Veniam voluptate nisi in ullam aspernatur accusantium
+                                We take pride in exceeding our guests' expectations. Read what our valued customers have
+                                to say about their dining experience at V-29 Restaurant – where every meal becomes a
+                                cherished memory.
                             </p>
                             <div class="text-button">
                                 <a href="#">Continue Reading</a>
@@ -212,33 +307,173 @@
     </section>
 
     <!-- Contact Section -->
-    <div id="form">
-        <div id="contact">
-            <h1>Contact Us</h1>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2 class="contact-title">Get In Touch</h2>
+                <p class="contact-subtitle">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- Contact Info Column -->
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <p class="contact-desc">Feel free to reach out to us for reservations, inquiries, or feedback. We're here to serve you.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Address</h4>
+                                    <p>123 Restaurant Street, Food City, FC 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:info@v29restaurant.com">info@v29restaurant.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-social">
+                            <h4>Follow Us</h4>
+                            <div class="social-links">
+                                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Column -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send us a Message</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="contactName" name="name" required placeholder=" ">
+                                <label for="contactName">Full Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contactEmail" name="email" required placeholder=" ">
+                                <label for="contactEmail">Email Address</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="contactPhone" name="phone" placeholder=" ">
+                            <label for="contactPhone">Phone Number (Optional)</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="contactSubject" name="subject" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="reservation">Table Reservation</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="inquiry">General Inquiry</option>
+                                <option value="catering">Catering Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" name="message" required placeholder=" " rows="5"></textarea>
+                            <label for="contactMessage">Your Message</label>
+                        </div>
+                        <button type="submit" class="contact-submit-btn">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <form action="">
-            <h3>Full Name</h3>
-            <input placeholder="Axel smith" type="text"><br>
-            <h3>Email</h3>
-            <input placeholder="hi@axel.com" type="email"><br>
-            <h3>Description</h3>
-            <textarea placeholder="Give some review" cols="100" rows="10"></textarea><br>
-            <button type="submit" class="submit">Get in touch</button>
-        </form>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <div class="footer-basic">
-        <footer>
-            <div class="social">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-snapchat"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <footer class="trendy-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">V-29 Restaurant</div>
+                    <p class="footer-tagline">Experience culinary excellence with our fresh, delicious dishes. Join us
+                        for an unforgettable dining experience.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#book-table"><i class="fa-solid fa-chevron-right"></i> Book Table</a></li>
+                        <li><a href="#blog"><i class="fa-solid fa-chevron-right"></i> Our Blog</a></li>
+                        <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-hours">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li><span class="day">Monday - Friday</span><span class="time">10:00 AM - 10:00 PM</span></li>
+                        <li><span class="day">Saturday - Sunday</span><span class="time">11:00 AM - 12:00 AM</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-location-dot"></i> 123 Restaurant Street, Food City, FC
+                                12345</a></li>
+                        <li><a href="tel:+1234567890"><i class="fa-solid fa-phone"></i> +1 (234) 567-890</a></li>
+                        <li><a href="mailto:info@v29restaurant.com"><i class="fa-solid fa-envelope"></i>
+                                info@v29restaurant.com</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="copyright">Copyright © 2026 V-29 Restaurant</p>
-        </footer>
-    </div>
+
+            <div class="footer-newsletter">
+                <div class="newsletter-content">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get the latest updates, special offers, and exclusive deals directly to your inbox.</p>
+                </div>
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2026 V-29 Restaurant. All Rights Reserved.</p>
+                <p class="footer-made-with">Made with <i class="fa-solid fa-heart"></i> for food lovers</p>
+            </div>
+        </div>
+    </footer>
 
     <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
     <script>
@@ -261,9 +496,61 @@
 
         // store references
         const bookForm = document.getElementById("bookForm");
+        const daySelect = document.getElementById("day");
+        const hoursSelect = document.getElementById("hours");
         const submitBtn = document.getElementById("form-submit");
         const btnTextSpan = submitBtn.querySelector(".btn-text");
         const toastContainer = document.getElementById("toast-container");
+
+        // Time slots for different days
+        const weekdayTimeSlots = [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "12:00 PM - 01:00 PM",
+            "01:00 PM - 02:00 PM",
+            "02:00 PM - 03:00 PM",
+            "06:00 PM - 07:00 PM",
+            "07:00 PM - 08:00 PM",
+            "08:00 PM - 09:00 PM",
+            "09:00 PM - 10:00 PM"
+        ];
+        const weekendTimeSlots = [
+            "11:00 AM - 12:00 PM",
+            "12:00 PM - 01:00 PM",
+            "01:00 PM - 02:00 PM",
+            "02:00 PM - 03:00 PM",
+            "06:00 PM - 07:00 PM",
+            "07:00 PM - 08:00 PM",
+            "08:00 PM - 09:00 PM",
+            "09:00 PM - 10:00 PM",
+            "10:00 PM - 11:00 PM",
+            "11:00 PM - 12:00 AM",
+        ];
+        function populateHours(day) {
+            hoursSelect.innerHTML = '<option value="" disabled selected>Select Hours</option>';
+
+            let timeSlots = [];
+
+            if (day === "Saturday" || day === "Sunday") {
+                timeSlots = weekendTimeSlots;
+            } else {
+                timeSlots = weekdayTimeSlots;
+            }
+
+            timeSlots.forEach(slot => {
+                const option = document.createElement("option");
+                option.value = slot;
+                option.textContent = slot;
+                hoursSelect.appendChild(option);
+            });
+        }
+
+        daySelect.addEventListener("change", function () {
+            const selectedDay = this.value;
+            if (selectedDay) {
+                populateHours(selectedDay);
+            }
+        });
 
         // helper: create spinner + text HTML
         const spinnerHtml = () => `
@@ -347,6 +634,18 @@
                 submitBtn.innerHTML = `<span class="btn-text">Book Table</span>`;
             }
         });
+
+        // Dynamic opening hours for hero section
+        const heroOpeningHours = document.getElementById('hero-opening-hours');
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const today = new Date();
+        const currentDay = days[today.getDay()];
+        
+        if (currentDay === 'Saturday' || currentDay === 'Sunday') {
+            heroOpeningHours.textContent = `Today: 11:00 AM - 12:00 AM (${currentDay})`;
+        } else {
+            heroOpeningHours.textContent = `Today: 10:00 AM - 10:00 PM (${currentDay})`;
+        }
     </script>
 </body>
 
