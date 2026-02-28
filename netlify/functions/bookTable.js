@@ -32,7 +32,7 @@ exports.handler = async (event) => {
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ success: true, message: "Sent to Telegram" }),
+            body: JSON.stringify({ success: true, message: "Table booked successfully!" }),
         };
 
     } catch (error) {
