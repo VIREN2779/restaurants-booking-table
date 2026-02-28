@@ -87,15 +87,6 @@
                         </select>
                         <select name="hours" class="inner-book" id="hours" required="">
                             <option value="" disabled selected>Select Hours</option>
-                            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-                            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
-                            <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
-                            <option value="01:00 PM - 02:00 PM">01:00 PM - 02:00 PM</option>
-                            <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
-                            <option value="06:00 PM - 07:00 PM">06:00 PM - 07:00 PM</option>
-                            <option value="07:00 PM - 08:00 PM">07:00 PM - 08:00 PM</option>
-                            <option value="08:00 PM - 09:00 PM">08:00 PM - 09:00 PM</option>
-                            <option value="09:00 PM - 10:00 PM">09:00 PM - 10:00 PM</option>
                         </select>
                         <input name="name" type="name" class="inner-book" id="fullName" placeholder="Full name"
                             required="">
@@ -255,7 +246,7 @@
                     <h3>Opening Hours</h3>
                     <ul>
                         <li><span class="day">Monday - Friday</span><span class="time">10:00 AM - 10:00 PM</span></li>
-                        <li><span class="day">Saturday - Sunday</span><span class="time">11:00 AM - 12:00 PM</span></li>
+                        <li><span class="day">Saturday - Sunday</span><span class="time">11:00 AM - 12:00 AM</span></li>
                     </ul>
                 </div>
 
@@ -312,9 +303,61 @@
 
         // store references
         const bookForm = document.getElementById("bookForm");
+        const daySelect = document.getElementById("day");
+        const hoursSelect = document.getElementById("hours");
         const submitBtn = document.getElementById("form-submit");
         const btnTextSpan = submitBtn.querySelector(".btn-text");
         const toastContainer = document.getElementById("toast-container");
+
+        // Time slots for different days
+        const weekdayTimeSlots = [
+            "10:00 AM - 11:00 AM",
+            "11:00 AM - 12:00 PM",
+            "12:00 PM - 01:00 PM",
+            "01:00 PM - 02:00 PM",
+            "02:00 PM - 03:00 PM",
+            "06:00 PM - 07:00 PM",
+            "07:00 PM - 08:00 PM",
+            "08:00 PM - 09:00 PM",
+            "09:00 PM - 10:00 PM"
+        ];
+        const weekendTimeSlots = [
+            "11:00 AM - 12:00 PM",
+            "12:00 PM - 01:00 PM",
+            "01:00 PM - 02:00 PM",
+            "02:00 PM - 03:00 PM",
+            "06:00 PM - 07:00 PM",
+            "07:00 PM - 08:00 PM",
+            "08:00 PM - 09:00 PM",
+            "09:00 PM - 10:00 PM",
+            "10:00 PM - 11:00 PM",
+            "11:00 PM - 12:00 AM",
+        ];
+        function populateHours(day) {
+            hoursSelect.innerHTML = '<option value="" disabled selected>Select Hours</option>';
+            
+            let timeSlots = [];
+            
+            if (day === "Saturday" || day === "Sunday") {
+                timeSlots = weekendTimeSlots;
+            } else {
+                timeSlots = weekdayTimeSlots;
+            }
+            
+            timeSlots.forEach(slot => {
+                const option = document.createElement("option");
+                option.value = slot;
+                option.textContent = slot;
+                hoursSelect.appendChild(option);
+            });
+        }
+
+        daySelect.addEventListener("change", function() {
+            const selectedDay = this.value;
+            if (selectedDay) {
+                populateHours(selectedDay);
+            }
+        });
 
         // helper: create spinner + text HTML
         const spinnerHtml = () => `
