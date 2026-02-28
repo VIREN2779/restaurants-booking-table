@@ -255,6 +255,11 @@
 
             const result = await res.json();
             console.log(result);
+
+            // Clear form fields after successful submission
+            if (result.success) {
+                document.getElementById("bookForm").reset();
+            }
         });
     </script>
 </body>
