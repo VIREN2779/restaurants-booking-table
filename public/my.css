@@ -280,6 +280,7 @@ nav .menu a:hover {
 .info-item i {
     color: #f2745f;
     font-size: 16px;
+    margin-bottom: 4px;
 }
 
 /* Scroll Indicator */
